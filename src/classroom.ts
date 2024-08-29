@@ -12,14 +12,14 @@ export function getAverageValue(grades: number[]): number {
   return count === 0 ? 0 : parseFloat((total / count).toFixed(2));
 }
 
-export function getPassingGrades(grades: number[]): number {
-  return grades.filter((grade) => grade >= 10).length;
+export function getPassingGrades(grades: number[]): number[] {
+  return grades.filter((grade) => grade >= 10);
 }
 
-export function getFailingGrades(grades: number[]): number {
-  return grades.filter((grade) => grade < 10).length;
+export function getFailingGrades(grades: number[]): number[] {
+  return grades.filter((grade) => grade <= 9);
 }
 
-export function getRaisedGrades(grades: number[]): number {
-  return grades.filter((grade) => grade >= 18).length;
+export function getRaisedGrades(grades: number[]): number[] {
+  return grades.map((grade) => Math.min(grade + 1, 20));
 }
